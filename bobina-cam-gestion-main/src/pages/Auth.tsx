@@ -17,7 +17,7 @@ const Auth = () => {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
 
-  // Redirect if user is already logged in
+ 
   useEffect(() => {
     if (user) {
       navigate('/');
@@ -151,7 +151,7 @@ const Auth = () => {
           <CardHeader className="text-center">
             <CardTitle>Acesso ao Sistema</CardTitle>
             <CardDescription>
-              Entre com sua conta ou crie uma nova
+              Entre com sua conta ou solicite ao administrador uma conta pra ter acesso ao sistema
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -204,78 +204,80 @@ const Auth = () => {
                 </form>
               </TabsContent>
               
-              <TabsContent value="signup" className="space-y-4">
-                <form onSubmit={handleSignUp} className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="fullName">Nome Completo</Label>
-                    <div className="relative">
-                      <User className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                      <Input
-                        id="fullName"
-                        type="text"
-                        placeholder="Seu nome completo"
-                        className="pl-10"
-                        value={signUpForm.fullName}
-                        onChange={(e) => setSignUpForm(prev => ({ ...prev, fullName: e.target.value }))}
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="signup-email">Email</Label>
-                    <div className="relative">
-                      <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                      <Input
-                        id="signup-email"
-                        type="email"
-                        placeholder="seu@email.com"
-                        className="pl-10"
-                        value={signUpForm.email}
-                        onChange={(e) => setSignUpForm(prev => ({ ...prev, email: e.target.value }))}
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="signup-password">Senha</Label>
-                    <div className="relative">
-                      <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                      <Input
-                        id="signup-password"
-                        type="password"
-                        placeholder="Mínimo 6 caracteres"
-                        className="pl-10"
-                        value={signUpForm.password}
-                        onChange={(e) => setSignUpForm(prev => ({ ...prev, password: e.target.value }))}
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="confirm-password">Confirmar Senha</Label>
-                    <div className="relative">
-                      <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                      <Input
-                        id="confirm-password"
-                        type="password"
-                        placeholder="Confirme sua senha"
-                        className="pl-10"
-                        value={signUpForm.confirmPassword}
-                        onChange={(e) => setSignUpForm(prev => ({ ...prev, confirmPassword: e.target.value }))}
-                        required
-                      />
-                    </div>
-                  </div>
-                  <Button 
-                    type="submit" 
-                    className="w-full bg-gradient-accent hover:shadow-medium transition-all duration-300"
-                    disabled={loading}
-                  >
-                    {loading ? <LoadingSpinner size="sm" className="mr-2" /> : null}
-                    Criar Conta
-                  </Button>
-                </form>
-              </TabsContent>
+              {/*
+<TabsContent value="signup" className="space-y-4">
+    <form onSubmit={handleSignUp} className="space-y-4">
+        <div className="space-y-2">
+            <Label htmlFor="fullName">Nome Completo</Label>
+            <div className="relative">
+                <User className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                <Input
+                    id="fullName"
+                    type="text"
+                    placeholder="Seu nome completo"
+                    className="pl-10"
+                    value={signUpForm.fullName}
+                    onChange={(e) => setSignUpForm(prev => ({ ...prev, fullName: e.target.value }))}
+                    required
+                />
+            </div>
+        </div>
+        <div className="space-y-2">
+            <Label htmlFor="signup-email">Email</Label>
+            <div className="relative">
+                <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                <Input
+                    id="signup-email"
+                    type="email"
+                    placeholder="seu@email.com"
+                    className="pl-10"
+                    value={signUpForm.email}
+                    onChange={(e) => setSignUpForm(prev => ({ ...prev, email: e.target.value }))}
+                    required
+                />
+            </div>
+        </div>
+        <div className="space-y-2">
+            <Label htmlFor="signup-password">Senha</Label>
+            <div className="relative">
+                <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                <Input
+                    id="signup-password"
+                    type="password"
+                    placeholder="Mínimo 6 caracteres"
+                    className="pl-10"
+                    value={signUpForm.password}
+                    onChange={(e) => setSignUpForm(prev => ({ ...prev, password: e.target.value }))}
+                    required
+                />
+            </div>
+        </div>
+        <div className="space-y-2">
+            <Label htmlFor="confirm-password">Confirmar Senha</Label>
+            <div className="relative">
+                <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                <Input
+                    id="confirm-password"
+                    type="password"
+                    placeholder="Confirme sua senha"
+                    className="pl-10"
+                    value={signUpForm.confirmPassword}
+                    onChange={(e) => setSignUpForm(prev => ({ ...prev, confirmPassword: e.target.value }))}
+                    required
+                />
+            </div>
+        </div>
+        <Button
+            type="submit"
+            className="w-full bg-gradient-accent hover:shadow-medium transition-all duration-300"
+            disabled={loading}
+        >
+            {loading ? <LoadingSpinner size="sm" className="mr-2" /> : null}
+            Criar Conta
+        </Button>
+    </form>
+</TabsContent>
+*/}
             </Tabs>
           </CardContent>
         </Card>
